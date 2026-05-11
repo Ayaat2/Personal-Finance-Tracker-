@@ -1,0 +1,220 @@
+:root {
+  /* Modern, vibrant color palette */
+  --primary-color: #4361ee; /* Vibrant blue */
+  --secondary-color: #3a0ca3; /* Deep purple */
+  --accent-color: #4cc9f0; /* Bright cyan */
+  --success-color: #4ade80; /* Fresh green */
+  --warning-color: #fbbf24; /* Warm yellow */
+  --danger-color: #f87171; /* Coral red */
+  --background: #26496c; /* light gray background */
+  --card-bg: #ffffff; /* White  */
+  --text: #1e293b; /* Dark blue-gray  */
+  --border-radius: 16px; /* Rounded corners */
+  --box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+}
+/* Body Styles  */
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  line-height: 1.6;
+}
+/* Gradient text styles for headings  */
+h1,
+h2,
+h3 {
+  background: linear-gradient(
+    45deg,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: var(--card-bg);
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 20px;
+  background: var(--card-bg);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  overflow: hidden;
+}
+/* Add new wrapper styles  */
+.left-column,
+.right-column {
+  padding: 1.5rem;
+}
+/* h1 Styles */
+h1 {
+  text-align: center;
+  margin: 2rem 0;
+  /* Instead of:  color:var(--card-bg); */
+  /* use this for gradient text effect: */
+  background: var(--card-bg);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+}
+/* Section Styles  */
+.section {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+/* input group Styles  */
+.input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+/* input Styles  */
+input[type="number"] {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+input[type="number"]:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 3px rgba(76, 201, 240, 0.1);
+}
+/* Expense List Styles  */
+.expense_list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+/* expense category Styles  */
+.expense_category {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 4px solid var(--primary-color);
+  cursor: move;
+  transition: transform 0.2s ease;
+  animation: slideIn 0.3s ease-out;
+}
+.expense_category:hover {
+  transform: translateY(-2px);
+  background: #e9ecef;
+}
+/* animations for better video appeal */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.expense_category span {
+  flex: 1;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+.expense_category span:focus {
+  background: #fff;
+  outline: 2px solid var(--secondary-color);
+}
+/* delete button styles  */
+.delete_expense {
+  background: var(--danger-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+.delete_expense:hover {
+  opacity: 1;
+}
+/* Add Expense Button Styles  */
+#add_expense {
+  background: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+#add_expense:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+/* budget summary styles  */
+#budget_summary .summary_content {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+/* status display styles  */
+#total_expenses {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+#remaining_budget {
+  color: var(--success-color);
+  font-weight: bold;
+}
+
+/* media query for smaller screens  */
+@media (max-width: 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+    gap: 1rem;
+  }
+  .left-column,
+  .right-column {
+    padding: 1rem;
+  }
+  #budget_summary .summary_content {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .expense_list input[type="number"] {
+    width: 70%;
+    max-width: 100%;
+  }
+}

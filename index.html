@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Expense Tracker</title>
+    <link rel="icon" href="./image/accounting (2).png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./style.css" />
+
+  </head>
+  <body>
+    <h1>Personal Finance Tracker</h1>
+    <div class="container">
+      <div class="left_column">
+        <!-- income section  -->
+        <div id="income_section" class="section">
+          <h3>Income</h3>
+          <div class="input_group">
+            <label for="monthly_income">Monthly Income: </label>
+            <input
+              id="monthly_income"
+              type="number"
+              placeholder="Enter your income..."
+            />
+          </div>
+        </div>
+        <!-- Budget section -->
+        <div id="budget_summary" class="section">
+          <h3>Budget Summary</h3>
+          <div class="summary_content">
+            <p>Total Expenses: <span id="total_expenses">$0</span></p>
+            <p>Remaining Budget: <span id="remaining_budget">$0</span></p>
+          </div>
+          <div id="budget_chart"></div>
+        </div>
+      </div>
+      <div class="right_column">
+        <!-- Expenses Section  -->
+        <div id="expense_section" class="section">
+          <h3>Expenses</h3>
+          <div class="expense_list"></div>
+          <button id="add_expense">Add New Expense</button>
+        </div>
+      </div>
+    </div>
+    <!-- highcharts -->
+     <script src="https://code.highcharts.com/highcharts.js"></script>
+     <script src="https://code.highcharts.com/modules/exporting.js"></script>
+     <script src="https://code.highcharts.com/modules/accessibility.js"></script>
+    <!-- main.js  -->
+    <script src="main.js" defer></script>
+  </body>
+</html>
