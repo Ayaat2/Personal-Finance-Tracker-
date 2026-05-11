@@ -97,7 +97,7 @@ Add your screenshot here:
 # 🌐 Live Demo
 
 ```md
-https://your-project.vercel.app
+https://personal-finance-tracker-six-ruddy.vercel.app/
 ```
 
 ---
